@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
         button.addEventListener("click", function() {
             if (this.getAttribute("data-type") === "submit") {
                 checkAnswer();
+
             } else {
                 let gameType = this.getAttribute("data-type");
                 runGame(gameType);
@@ -23,12 +24,17 @@ document.addEventListener("DOMContentLoaded", function() {
  */
 
 function runGame(gameType) {
+
 // Creates two random numbers between 0 and 25
 let num1 = Math.floor(Math.random() *25) + 1;
 let num2 = Math.floor(Math.random() *25) + 1;
 
 if (gameType === "addition") {
     displayAdditionQuestion(num1, num2);
+
+} else if (gameType === "multiply") {
+    displayMultiplyQuestion(num1, num2);
+
 }else {
     alert(`Unkown game type: ${gameType}`)
     throw `Unknown game type: ${gameType}. Aborting! `;
@@ -76,8 +82,11 @@ function calculateCorrectAnswer() {
     let operator = document.getElementById('operator').innerText;
 
     if (operator === "+") {
-        return [operand1 + operand2, "addition"]
-    }else {
+        return [operand1 + operand2, "addition"];
+    } else if (operator === "x"){
+        return [operand1 * operand2, "multiply"];
+
+    } else {
         alert(`Unimplemented operator ${operator}`);
         throw`Unimplemented operator ${operator}. Aborting!`;
     }
@@ -104,11 +113,15 @@ function displayAdditionQuestion(operand1, operand2) {
     document.getElementById('operator').textContent = "+";
 }
 
-function displaySubtractQuestion() {
-    
+function displaySubtractQuestion(operand1, operand2) {
+    document.getElementById('operand1').textContent = operand1;
+    document.getElementById('operand2').textContent = operand2;
+    document.getElementById('operator').textContent = "-";
 }
-function displayMultiplyQuestion() {
-    
+function displayMultiplyQuestion(operand1, operand2) {
+    document.getElementById('operand1').textContent = operand1;
+    document.getElementById('operand2').textContent = operand2;
+    document.getElementById('operator').textContent = "x"; 
 }
 
 // It's important to note that we said before, 
