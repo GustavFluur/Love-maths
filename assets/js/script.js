@@ -41,11 +41,13 @@ function runGame(gameType) {
     }
 
 }
-
 // Video transcript: Does your code look similar to this? Well you  can see there that we have another else if  
 // statement in run game to call our display subtract  question function. Hopefully, yours looks similar. 
 // And in our calculate correct answer function  you can see that we've got another else if again  
 // this time it's checking to see if our operator  is a minus sign and then if it is,
+
+// Subraction element seems not to be working at this time, will be working despite that I was transfering,
+// all the lectural files into this one to save some time. Will work on it later or figure out another solution that is able to cover the error. 
 
 /**
  * Checks the answer against the first element in
