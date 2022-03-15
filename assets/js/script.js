@@ -40,6 +40,9 @@ function runGame(gameType) {
         throw `Unknown game type: ${gameType}. Aborting!`;
     }
 
+    function newFunction() {
+        displaySubtractQuestion(num1, num2);
+    }
 }
 // Video transcript: Does your code look similar to this? Well you  can see there that we have another else if  
 // statement in run game to call our display subtract  question function. Hopefully, yours looks similar. 
