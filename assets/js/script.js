@@ -2,6 +2,11 @@
 // Get the button elements and add event listeners to them
 
 document.addEventListener("DOMContentLoaded", function() {
+
+    document.getElementById("answer-box"). value = "";
+
+    // Creates two random numbers between 0 and 25// in the lecture it says
+    // 1 and 25 but it was a misstake and was highlighted in the video
     let buttons = document.getElementsByTagName("button");
 
     for (let button of buttons) {
