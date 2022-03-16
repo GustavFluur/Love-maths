@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
  */
 function runGame(gameType) {
 
-    // Creates two random numbers between 0 and 25
+    // Creates two random numbers between 1 and 25
     let num1 = Math.floor(Math.random() * 25) + 1;
     let num2 = Math.floor(Math.random() * 25) + 1;
 
@@ -35,20 +35,19 @@ function runGame(gameType) {
         displayMultiplyQuestion(num1, num2);
     } else if (gameType === "subtract" ) {
         displaySubtractQuestion(num1, num2);
+    } else if (gameType === "division" ) {
+        displaySubtractQuestion(num1, num2);
     } else {
         alert(`Unknown game type: ${gameType}`);
         throw `Unknown game type: ${gameType}. Aborting!`;
     }
 
-    function newFunction() {
-        displaySubtractQuestion(num1, num2);
-    }
 }
+
 // Video transcript: Does your code look similar to this? Well you  can see there that we have another else if  
 // statement in run game to call our display subtract  question function. Hopefully, yours looks similar. 
 // And in our calculate correct answer function  you can see that we've got another else if again  
 // this time it's checking to see if our operator  is a minus sign and then if it is,
-
 // Subraction element seems not to be working at this time, will be working despite that I was transfering,
 // all the lectural files into this one to save some time. Will work on it later or figure out another solution that is able to cover the error. 
 
@@ -140,3 +139,5 @@ function displayMultiplyQuestion(operand1, operand2) {
     document.getElementById('operator').textContent = "x";
 
 }
+
+function displayDivisionQuestion() {}
