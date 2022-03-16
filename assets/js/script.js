@@ -2,11 +2,6 @@
 // Get the button elements and add event listeners to them
 
 document.addEventListener("DOMContentLoaded", function() {
-
-    document.getElementById("answer-box"). value = "";
-
-    // Creates two random numbers between 0 and 25// in the lecture it says
-    // 1 and 25 but it was a misstake and was highlighted in the video
     let buttons = document.getElementsByTagName("button");
 
     for (let button of buttons) {
@@ -20,6 +15,12 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    document.getElementById("answer-box").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            checkAnswer();
+        }
+    });
+
     runGame("addition");
 
 });
@@ -28,9 +29,12 @@ document.addEventListener("DOMContentLoaded", function() {
  * The main game "loop", called when the script is first loaded
  * and after the user's answer has been processed
  */
-function runGame(gameType) {
+ function runGame(gameType) {
 
-    // Creates two random numbers between 1 and 25
+    document.getElementById("answer-box").value = "";
+    document.getElementById("answer-box").focus();
+
+    // Creates two random numbers between 0 and 25
     let num1 = Math.floor(Math.random() * 25) + 1;
     let num2 = Math.floor(Math.random() * 25) + 1;
 
@@ -40,21 +44,21 @@ function runGame(gameType) {
         displayMultiplyQuestion(num1, num2);
     } else if (gameType === "subtract" ) {
         displaySubtractQuestion(num1, num2);
-    /*} else if (gameType === "division" ) {
-        displaySubtractQuestion(num1, num2);*/
+    } else if (gameType === "division") {
+        displayDivisionQuestion (num1, num2);
     } else {
         alert(`Unknown game type: ${gameType}`);
         throw `Unknown game type: ${gameType}. Aborting!`;
     }
 
 }
-
 // Video transcript: Does your code look similar to this? Well you  can see there that we have another else if  
 // statement in run game to call our display subtract  question function. Hopefully, yours looks similar. 
 // And in our calculate correct answer function  you can see that we've got another else if again  
 // this time it's checking to see if our operator  is a minus sign and then if it is,
 // Subraction element seems not to be working at this time, will be working despite that I was transfering,
-// all the lectural files into this one to save some time. Will work on it later or figure out another solution that is able to cover the error. 
+// all the lectural files into this one to save some time. Will work on it later or 
+//figure out another solution that is able to cover the error. 
 
 /**
  * Checks the answer against the first element in
@@ -94,8 +98,8 @@ function calculateCorrectAnswer() {
         return [operand1 * operand2, "multiply"];
     } else if (operator === "-") {
         return [operand1 - operand2, "subtract"];
-    /*} else if (operator === "/") {
-        return [operand1 / operand2, "divisiont"];*/
+     } else if (operator === "÷") {
+        return [operand1 / operand2, "division"];
     } else {
         alert(`Unimplemented operator ${operator}`);
         throw `Unimplemented operator ${operator}. Aborting!`;
@@ -147,8 +151,12 @@ function displayMultiplyQuestion(operand1, operand2) {
 
 }
 
-/*function displayDivisionQuestion(operand1, operand2) {
+function displayDivisionQuestion(operand1, operand2) {
     document.getElementById('operand1').textContent = operand1;
     document.getElementById('operand2').textContent = operand2;
-    document.getElementById('operator').textContent = "/";
-}*/
+    document.getElementById('operator').textContent = "÷";
+}
+
+// Press option key and forward slash - the one under question mark = ÷
+// Imperative to use the right symbols in this case for making everything work accordingly. 
+// 
