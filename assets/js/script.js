@@ -25,6 +25,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 
+//.....[] we're going to add it to our dom content loaded  event handler code. So just after the for loop,  
+//we're going to get our reference to our answer box  again document.getElementById answer box,  
+//and we're going to add an event listener to it. 
+
+//The event that we're listening for is key  down so this is listening for a key press. we're going to send in an event object.  
+//And then we're going to check a property of  that event object which is the key property.  
+//To see if the enter key was pressed and if so,  we're going to call our check answer function.
+// So this is slightly different from what we've  done before. This time it's listening for a key  
+// down event, which as we said is when a key is  pressed. Every event generates an object which  
+//we're passing in here to our event handler  code. And this object is very, very useful  
+//because it contains lots of different things which  we can check or use to fine tune what we want do with our event.
+
+
 /**
  * The main game "loop", called when the script is first loaded
  * and after the user's answer has been processed
@@ -33,6 +46,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     document.getElementById("answer-box").value = "";
     document.getElementById("answer-box").focus();
+    // And what this does is each  time the run game function is called the answer box will again gain the focus. 
+    //So the cursor will be ready there for us to type in our answer.
 
     // Creates two random numbers between 0 and 25
     let num1 = Math.floor(Math.random() * 25) + 1;
